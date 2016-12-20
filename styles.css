@@ -11,6 +11,7 @@ h1 {
 .selected {
     background-color: #CFD8DC !important;
     color: white;
+    border-style: 4px;
   }
   .heroes {
     margin: 0 0 2em 0;

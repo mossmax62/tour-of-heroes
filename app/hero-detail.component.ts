@@ -5,7 +5,7 @@ import { Hero } from './hero';
   selector: 'my-hero-detail',
   template: `
   	<div *ngIf="hero" class="well col-xs-6 col-md-4">
-		<h2>{{hero.name}} details!</h2>
+		<label>{{hero.name}} details!</label>
 		<div>
 			<label class="label label-default">id: </label>{{hero.id}}
 		</div>
