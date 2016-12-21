@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router }   from '@angular/router';
 import { Hero } from './hero';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
@@ -7,25 +8,17 @@ import { OnInit } from '@angular/core';
 
 
 @Component({
+moduleId: module.id,
 selector: 'my-heroes',
-template: `
-
-		<div class="well col-xs-6 col-md-4" >
-		<label>My Heroes</label>
-		<ul class="heroes">
-			<li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-				<span class = "badge">{{hero.id}} </span>{{hero.name}}
-			</li>
-		</ul>
-		</div>
-		<my-hero-detail [hero]="selectedHero"></my-hero-detail>
-`
-,
+templateUrl: 'heroes.component.html',
+styleUrls : [ 'heroes.component.css' ],
 })
 export class HeroesComponent implements OnInit  { 
-	constructor(private heroService: HeroService) { };
+	constructor(
+		private heroService: HeroService,
+		private router: Router
+		) { };
 
-	name = 'Angular'; 
 	title = 'Tour of heroes';
 	selectedHero: Hero;
  	heroes: Hero[];
@@ -42,4 +35,28 @@ export class HeroesComponent implements OnInit  {
 	onSelect(hero:Hero):void{
 		this.selectedHero=hero;
 	}
+
+	gotoDetail(): void {
+  		this.router.navigate(['/detail', this.selectedHero.id]);
+	}
+
+	add(name: string): void {
+  		name = name.trim();
+  		if (!name) { return; }
+  		
+  		this.heroService.create(name)
+    		.then(hero => {this.heroes.push(hero);
+      		this.selectedHero = null;});
+	}
+
+	delete(hero: Hero): void {
+		  this.heroService
+  	      .delete(hero.id)
+      	  .then(() => {
+        	this.heroes = this.heroes.filter(h => h !== hero);
+        	if (this.selectedHero === hero) { this.selectedHero = null; }
+      });
+}
+
+
 }
