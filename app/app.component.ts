@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 moduleId: module.id,
 selector : 'my-app',
 template: `
-	<img src="http://maxmussuto.com/inteligenciadenegocios/wp-content/uploads/2017/01/logo-mm.jpg" style="width:304px;height:228px;">
+	<div ><img src="https://maxmussuto.com/inteligenciadenegocios/wp-content/uploads/2017/01/logo-mm.jpg" class="img" style="width:304px;height:228px;"></div>
     <h1>{{title}}</h1>
     <div>
     <nav>
