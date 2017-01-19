@@ -9,7 +9,7 @@ import { Hero } from './hero';
   selector: 'hero-search',
   templateUrl: 'hero-search.component.html',
   styleUrls: [ 'hero-search.component.css' ],
-  providers: [HeroSearchService]
+  providers: [ HeroSearchService ]
 })
 export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>;
@@ -19,6 +19,7 @@ export class HeroSearchComponent implements OnInit {
     private router: Router) {}
   // Push a search term into the observable stream.
   search(term: string): void {
+    console.log(term);
     this.searchTerms.next(term);
   }
   ngOnInit(): void {
