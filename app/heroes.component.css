@@ -17,7 +17,7 @@ button.delete {
 
 .selected {
     background-color: #CFD8DC !important;
-    color: white;
+    color: black;
     border-style: 4px;
   }
   .heroes {

@@ -3,8 +3,10 @@ import {Component} from '@angular/core';
 moduleId: module.id,
 selector : 'my-app',
 template: `
-	<div ><img src="https://maxmussuto.com/inteligenciadenegocios/wp-content/uploads/2017/01/logo-mm.jpg" class="img" style="width:304px;height:228px;"></div>
-    <h1>{{title}}</h1>
+	
+    <div class="well" style="text-align: center;">
+    <img src="app/resources/logo-mm.jpg" class="img" style="width:304px;height:228px;">
+    <h1>{{title}}</h1></div>
     <div>
     <nav>
     	<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
@@ -16,5 +18,5 @@ template: `
 styleUrls :['app.component.css'],
 })
 export class AppComponent{
-	title='Tour of heroes';
+	title='Google Angular 2 App by Max Mussuto';
 }
